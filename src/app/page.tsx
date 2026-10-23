@@ -301,8 +301,9 @@ export default function Home() {
           <ul className="mt-14 grid gap-14 sm:grid-cols-2">
             {hosts.map((h) => (
               <li key={h.name} className="text-center">
-                <div className="mx-auto w-full max-w-[300px] overflow-hidden">
-                  <Image src={h.img} alt={h.name} width={320} height={320} sizes="300px" className="photo aspect-square w-full object-cover transition duration-500 hover:[filter:none]" />
+                {/* Quelle nur 320 px – höchstens 160 px anzeigen, sonst unscharf auf Retina-Bildschirmen */}
+                <div className="mx-auto h-40 w-40 overflow-hidden">
+                  <Image src={h.img} alt={h.name} width={320} height={320} sizes="160px" quality={90} className="photo h-40 w-40 object-cover transition duration-500 hover:[filter:none]" />
                 </div>
                 <h3 className="mt-6 font-display text-2xl font-semibold uppercase">{h.name}</h3>
                 <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted">{h.text}</p>
