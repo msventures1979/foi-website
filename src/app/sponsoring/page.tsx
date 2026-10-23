@@ -26,7 +26,7 @@ const reasons = [
   {
     icon: "dinner",
     title: "Echte Begegnungen",
-    text: "Bis zu 150 Entscheider aus Wirtschaft, Sport, Wissenschaft und Politik – an einem Abend, an einem Tisch, ohne Messestand.",
+    text: "Bis zu 200 Entscheider aus Wirtschaft, Sport, Wissenschaft und Politik – an einem Abend, an einem Tisch, ohne Messestand.",
   },
   {
     icon: "branchen",
@@ -114,7 +114,7 @@ export default function SponsoringPage() {
       <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
         <Stats
           items={[
-            { value: "150", label: "Gäste je Abend" },
+            { value: "200", label: "Plätze je Abend" },
             { value: "7", label: "Editionen" },
             { value: "2×", label: "im Jahr" },
             { value: "0 €", label: "für Gäste" },

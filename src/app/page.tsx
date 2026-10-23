@@ -23,7 +23,7 @@ const highlights = [
   { icon: "dinner", label: "Kuratiertes", value: "Dinner", text: "Lange Tafeln, gemischte Runden und Zeit für Gespräche – der eigentliche Kern des Abends." },
   { icon: "ort", label: "Außergewöhnliche", value: "Orte", text: "Restaurant, Arena, Kirche, Fernmeldeturm, Fabrikhalle: jedes Mal ein anderer Ort in Mannheim." },
   { icon: "mikro", label: "Impuls &", value: "Podium", text: "Gäste, die etwas zu sagen haben – aus Wirtschaft, Sport, Wissenschaft und Politik." },
-  { icon: "gaeste", label: "Bis zu 150", value: "Gäste", text: "Ein kuratierter Kreis aus Gründern, Führungskräften und Verantwortlichen aus der Politik." },
+  { icon: "gaeste", label: "Bis zu 200", value: "Gäste", text: "Ein kuratierter Kreis aus Gründern, Führungskräften und Verantwortlichen aus der Politik." },
   { icon: "branchen", label: "Vielfältige", value: "Branchen", text: "Bewusst gemischt, damit Begegnungen entstehen, die es sonst nicht gäbe." },
   { icon: "einladung", label: "Nur auf", value: "Einladung", text: "Kein Ticketverkauf an Gäste. Wer kommt, wird persönlich eingeladen." },
 ] as const;

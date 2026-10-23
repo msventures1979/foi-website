@@ -56,7 +56,7 @@ export function EventFields({ ev = {} }: { ev?: Ev }) {
       </div>
       <div>
         <label className="lbl">Plätze</label>
-        <input name="capacity" type="number" min={1} className="field" defaultValue={ev.capacity ?? 150} />
+        <input name="capacity" type="number" min={1} className="field" defaultValue={ev.capacity ?? 200} />
       </div>
       <div className="lg:col-span-2">
         <label className="lbl">Ort</label>
