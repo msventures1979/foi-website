@@ -136,3 +136,54 @@ export function Icon({ name, className = "h-8 w-8" }: { name: keyof typeof paths
     </svg>
   );
 }
+
+/** Großer Bildkopf für Unterseiten, im Stil der Startseite. */
+export function PageHero({
+  image,
+  imageAlt = "",
+  eyebrow,
+  title,
+  outline,
+  children,
+  grayscale = false,
+  position = "center",
+}: {
+  image: string;
+  imageAlt?: string;
+  eyebrow: React.ReactNode;
+  title: React.ReactNode;
+  outline?: string;
+  children?: React.ReactNode;
+  grayscale?: boolean;
+  position?: string;
+}) {
+  return (
+    <section className="relative isolate overflow-hidden">
+      <Image src={image} alt={imageAlt} fill priority sizes="100vw" className={`-z-10 object-cover ${grayscale ? "photo-dim" : ""}`} style={{ objectPosition: position }} />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/50 to-black/10" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/10 to-transparent" />
+      <div className="mx-auto flex min-h-[62vh] max-w-[1240px] flex-col justify-end px-4 pb-14 pt-24 sm:px-6 md:min-h-[70vh] md:pb-20">
+        <p className="text-xs uppercase tracking-[0.28em] text-gold">{eyebrow}</p>
+        <h1 className="mt-4 max-w-4xl font-display text-[clamp(44px,7.5vw,104px)] font-bold uppercase leading-[0.95]">
+          {title}
+          {outline ? <span className="outline-text block">{outline}</span> : null}
+        </h1>
+        {children ? <div className="mt-6 max-w-2xl text-[17px] leading-relaxed text-white/85 md:text-lg">{children}</div> : null}
+      </div>
+    </section>
+  );
+}
+
+/** Kennzahlen-Leiste */
+export function Stats({ items }: { items: { value: string; label: string }[] }) {
+  return (
+    <ul className="grid grid-cols-2 border-y border-line md:grid-cols-4">
+      {items.map((s, i) => (
+        <li key={s.label} className={`px-4 py-8 text-center ${i % 2 ? "border-l border-line" : ""} ${i > 1 ? "border-t border-line md:border-t-0" : ""} md:border-l md:first:border-l-0`}>
+          <p className="font-display text-[clamp(34px,4.5vw,56px)] font-bold leading-none">{s.value}</p>
+          <p className="mt-2 text-[11px] uppercase tracking-[0.24em] text-dim">{s.label}</p>
+        </li>
+      ))}
+    </ul>
+  );
+}
