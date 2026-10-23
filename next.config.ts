@@ -37,6 +37,9 @@ const nextConfig: NextConfig = {
       // Alte Adressen der Lovable-Seite
       { source: "/unzer-open-2026", destination: "/archiv/unzer-open-2026", permanent: true },
       { source: "/archive", destination: "/archiv", permanent: true },
+      // Einladungslinks der alten Seite
+      { source: "/inviteonly", destination: "/einladung", permanent: true },
+      { source: "/rsvp", destination: "/einladung", permanent: true },
     ];
   },
 };

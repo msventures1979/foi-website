@@ -25,6 +25,21 @@ export const env = {
       .map((s) => s.trim())
       .filter(Boolean);
   },
+  get siteUrl() {
+    return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://frontlineofinnovation.de").replace(/\/$/, "");
+  },
+  /** Öffentliche Adresse für Links in Mails – auf der Vorschau die Vercel-Adresse */
+  get publicUrl() {
+    if (process.env.MAIL_LINK_BASE) return process.env.MAIL_LINK_BASE.replace(/\/$/, "");
+    if (process.env.VERCEL_PROJECT_PRODUCTION_URL && process.env.NEXT_PUBLIC_NOINDEX === "1") return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+    return this.siteUrl;
+  },
+  get mailDailyLimit() {
+    return Number(process.env.MAIL_DAILY_LIMIT ?? "100");
+  },
+  get cronSecret() {
+    return process.env.CRON_SECRET ?? "";
+  },
   get hasDb() {
     return Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
   },
