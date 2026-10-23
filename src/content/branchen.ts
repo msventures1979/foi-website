@@ -3,7 +3,7 @@
  * Website-Gästeliste (625 eindeutige Personen, davon 545 einer Branche zuordenbar). Details: Dropbox FOI/FOI_Branchenanalyse.xlsx
  * Anteile gerundet, Summe 100.
  */
-export const INVITE_LIST_SIZE = "1.000";
+export const INVITE_LIST_SIZE = "1.500";
 
 export const branchen: { label: string; share: number }[] = [
   { label: "Finanzen & Investoren", share: 18 },
