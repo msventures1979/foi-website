@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: SITE_NAME }],
   },
   twitter: { card: "summary_large_image" },
+  // bis zum Umzug der Domain: NEXT_PUBLIC_NOINDEX=1 in Vercel
+  ...(process.env.NEXT_PUBLIC_NOINDEX === "1" || (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production")
+    ? { robots: { index: false, follow: false } }
+    : {}),
 };
 
 export const viewport: Viewport = { themeColor: "#000000", colorScheme: "dark" };
