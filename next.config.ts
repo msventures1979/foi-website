@@ -1,16 +1,16 @@
 import type { NextConfig } from "next";
 
 /**
- * Sicherheits-Header für alle Seiten. Die Seite lädt nichts von Drittanbietern
- * (Schriften, Bilder, Skripte liegen alle hier) – deshalb kann die CSP streng sein.
+ * Sicherheits-Header für alle Seiten. Schriften, Bilder und Skripte liegen hier; einzige Ausnahme ist
+ * Google Analytics, das erst nach Einwilligung geladen wird.
  */
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'" + (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""),
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com" + (process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""),
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

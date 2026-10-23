@@ -1,3 +1,4 @@
+import { ConsentSettingsButton } from "@/components/consent";
 /**
  * Rechtstexte für frontlineofinnovation.de
  * Impressum: unverändert von der bisherigen Seite übernommen (auf Wunsch von Matthias, Stand 23.10.2026).
@@ -54,8 +55,9 @@ export function Datenschutz() {
     <>
       <p>
         Mit dieser Erklärung informieren wir Sie, welche personenbezogenen Daten wir beim Besuch dieser Website und bei einer Anfrage über unsere Formulare
-        verarbeiten, wozu wir das tun und welche Rechte Sie haben. Diese Seite setzt keine Cookies, verwendet keine Analyse- oder Werbedienste und lädt
+        verarbeiten, wozu wir das tun und welche Rechte Sie haben. Ohne Ihre Einwilligung setzt diese Seite keine Cookies und lädt
         keine Inhalte von Drittanbietern wie Google Fonts, Karten, Videos oder Social-Media-Plugins. Schriften und Bilder liegen auf unserem eigenen Server.
+        Einzige Ausnahme ist Google Analytics – und das nur, wenn Sie zustimmen (siehe unten).
       </p>
 
       <H2>1. Verantwortlicher</H2>
@@ -74,6 +76,23 @@ export function Datenschutz() {
         Beim Aufruf der Seite verarbeitet unser Hosting-Anbieter technisch notwendige Daten wie IP-Adresse, Datum und Uhrzeit, aufgerufene Seite und
         Browserkennung, um die Seite auszuliefern und vor Missbrauch zu schützen. Diese Protokolle werden nach kurzer Zeit automatisch gelöscht.
         Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren und stabilen Betrieb (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+
+      <H3>Reichweitenmessung mit Google Analytics</H3>
+      <p>
+        Wenn Sie im Hinweis beim ersten Besuch „Akzeptieren“ wählen, nutzen wir Google Analytics 4 der Google Ireland Limited, Gordon House, Barrow
+        Street, Dublin 4, Irland. Damit sehen wir in zusammengefasster Form, welche Seiten aufgerufen werden, wie Besucher auf unsere Seite kommen (etwa
+        über eine Suchmaschine oder LinkedIn), mit welchem Gerätetyp und aus welchem Land. Google setzt dafür Cookies („_ga“, „_ga_…“), die bis zu
+        zwei Jahre gespeichert bleiben, und verarbeitet dabei unter anderem eine gekürzte IP-Adresse, Browser- und Geräteangaben sowie die aufgerufenen
+        Seiten. Google Signals und Werbefunktionen haben wir abgeschaltet. Auf den persönlichen Einladungsseiten und in der Verwaltung messen wir
+        nicht; Seitenadressen übermitteln wir ohne Zusatzangaben, abgesehen von Kampagnenkennungen wie „utm_source“.
+      </p>
+      <p className="mt-4">
+        Rechtsgrundlage ist Ihre Einwilligung (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Google kann Daten auch in die USA übermitteln; Google
+        ist nach dem EU-US Data Privacy Framework zertifiziert. Ihre Wahl speichern wir in Ihrem Browser (ohne Cookie). Sie können Ihre Einwilligung
+        jederzeit mit Wirkung für die Zukunft widerrufen: über „Cookie-Einstellungen“ unten auf jeder Seite oder hier:{" "}
+        <ConsentSettingsButton className="text-gold underline underline-offset-2 hover:text-white" />. In Google Analytics löschen wir Ereignisdaten
+        nach zwei Monaten und nutzerbezogene Daten nach 14 Monaten.
       </p>
 
       <H3>Kontakt, Empfehlungen und Wild-Card-Bewerbungen</H3>
@@ -113,6 +132,9 @@ export function Datenschutz() {
         </li>
         <li>
           <b className="text-white">Resend</b> (USA) – Zustellung der Benachrichtigung über eine neue Anfrage an unser Postfach
+        </li>
+        <li>
+          <b className="text-white">Google Analytics</b> (Google Ireland Ltd.) – Reichweitenmessung, nur mit Ihrer Einwilligung
         </li>
         <li>
           <b className="text-white">Google Workspace</b> (Google Ireland Ltd.) – unser E-Mail-Postfach, in dem Ihre Anfrage und unsere Antwort liegen

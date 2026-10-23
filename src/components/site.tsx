@@ -1,3 +1,4 @@
+import { ConsentSettingsButton } from "@/components/consent";
 import Image from "next/image";
 import Link from "next/link";
 import { MobileMenu } from "@/components/mobile-menu";
@@ -70,6 +71,7 @@ export function Footer() {
           <p className="mt-3 flex flex-col">
             <Link href="/impressum" className="inline-block py-1.5 text-dim hover:text-white">Impressum</Link>
             <Link href="/datenschutz" className="inline-block py-1.5 text-dim hover:text-white">Datenschutz</Link>
+            <ConsentSettingsButton className="inline-block py-1.5 text-left text-dim hover:text-white" />
           </p>
         </div>
       </div>

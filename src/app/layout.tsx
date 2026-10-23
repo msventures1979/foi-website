@@ -1,3 +1,4 @@
+import { Consent } from "@/components/consent";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -51,7 +52,10 @@ export const viewport: Viewport = { themeColor: "#000000", colorScheme: "dark" }
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="de" className={`${oswald.variable} ${archivo.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Consent />
+      </body>
     </html>
   );
 }
