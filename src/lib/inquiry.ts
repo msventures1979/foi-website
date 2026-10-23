@@ -9,8 +9,10 @@ export const CONTACT_TOPICS = ["Empfehlung eines Gastes", "Bewerbung um einen Gr
 export const SPONSOR_PACKAGES = ["Hauptpartner", "Premiumpartner", "Förderpartner", "Noch offen"] as const;
 export const MAX_TICKETS = 2;
 
-const text = (max: number) => z.string().trim().max(max, `Höchstens ${max} Zeichen.`);
-const required = (max: number, msg = "Bitte ausfüllen.") => text(max).min(1, msg);
+// Optionale Felder dürfen im jeweiligen Formular ganz fehlen (z. B. Telefon im Kontaktformular).
+const text = (max: number) => z.string().trim().max(max, `Höchstens ${max} Zeichen.`).optional().default("");
+const required = (max: number, msg = "Bitte ausfüllen.") =>
+  z.string({ message: msg }).trim().min(1, msg).max(max, `Höchstens ${max} Zeichen.`);
 
 const base = z.object({
   firstName: required(100),

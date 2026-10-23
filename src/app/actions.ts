@@ -33,7 +33,11 @@ export async function submitInquiry(_prev: InquiryState, form: FormData): Promis
       const key = String(issue.path[0] ?? "form");
       errors[key] ??= issue.message;
     }
-    return { status: "error", message: "Bitte prüfen Sie die markierten Felder.", errors, values };
+    // Fehler zu Feldern, die es im Formular nicht gibt, als Klartext zeigen statt still zu scheitern
+    const unknown = Object.keys(errors).filter((k) => !(k in values) && k !== "consent");
+    const message = unknown.length ? `Bitte prüfen Sie Ihre Angaben (${unknown.join(", ")}).` : "Bitte prüfen Sie die markierten Felder.";
+    if (unknown.length) console.error("inquiry: Fehler in nicht vorhandenen Feldern", kind, unknown);
+    return { status: "error", message, errors, values };
   }
   const data = parsed.data as Record<string, unknown>;
 
