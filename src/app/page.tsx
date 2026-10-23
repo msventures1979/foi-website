@@ -40,7 +40,7 @@ const hosts = [
     name: "Matthias Storch",
     img: "/images/menschen/gastgeber-matthias-storch.webp",
     role: "Gastgeber · Gründer",
-    text: "Gründer von claida und der Good Brands AG. Baut seit vielen Jahren Unternehmen auf, mit Erfahrung in Marketing und Vertrieb bis zum Exit.",
+    text: "Gründer von ansara, marktform GmbH und der Good Brands AG. Baut seit vielen Jahren Unternehmen auf, mit Erfahrung in Marketing und Vertrieb bis zum Exit.",
     linkedin: "https://www.linkedin.com/in/matthiasstorch/",
   },
   {
