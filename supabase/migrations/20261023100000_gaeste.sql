@@ -211,9 +211,8 @@ grant select, insert, update, delete on public.contacts, public.events, public.i
 grant usage, select on all sequences in schema public to service_role;
 grant execute on function public.claim_emails(int) to service_role;
 
--- Zugang für die Gastgeber und die Assistenz (wie auf der bisherigen Seite)
+-- Zugang: das gemeinsame Postfach info@ und die Assistenz
 insert into public.admin_users (email, name, role) values
-  ('matthias@frontlineofinnovation.de', 'Matthias Storch', 'admin'),
-  ('sueleyman@frontlineofinnovation.de', 'Süleyman Acar', 'admin'),
+  ('info@frontlineofinnovation.de', 'Frontline of Innovation', 'admin'),
   ('hulbe@four-asset-management.de', 'Antje Hulbe', 'assistenz')
 on conflict (email) do nothing;
