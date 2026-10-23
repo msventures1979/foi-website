@@ -27,7 +27,7 @@ const guests = [
   { label: "Gründer", text: "Menschen, die Unternehmen aufgebaut haben.", img: "/images/start/gaeste-gruender.webp" },
   { label: "Führungskräfte", text: "Entscheider aus Unternehmen der Region und darüber hinaus.", img: "/images/start/gaeste-fuehrungskraefte.webp" },
   { label: "Politik", text: "Verantwortliche aus Stadt und Land.", img: "/images/start/gaeste-politiker.webp" },
-  { label: "Wild Cards", text: "Fünf Plätze je Abend für Gründer junger Unternehmen.", img: "/images/start/gaeste-wild-cards.webp" },
+  { label: "Gründerplätze", text: "Fünf Plätze je Abend für Gründer junger Unternehmen.", img: "/images/start/gaeste-wild-cards.webp" },
 ];
 
 const hosts = [
@@ -258,7 +258,7 @@ export default function Home() {
 
           <div className="mt-24 text-right">
             <p aria-hidden className="ghost text-left md:text-center">
-              Invite only
+              Einladung
             </p>
             <p className="-mt-2 font-display text-[clamp(22px,3vw,36px)] font-semibold uppercase md:-mt-6">Einladungen &amp; Empfehlungen</p>
           </div>
@@ -281,7 +281,7 @@ export default function Home() {
           />
           <div className="mt-10 grid items-center gap-6 md:grid-cols-[1fr_auto]">
             <div>
-              <h3 className="font-display text-xl font-semibold uppercase">Wild Card</h3>
+              <h3 className="font-display text-xl font-semibold uppercase">Gründerplätze</h3>
               <p className="mt-2 max-w-2xl leading-relaxed text-muted">
                 Fünf Plätze je Abend vergeben wir an Gründer junger Unternehmen. Wer an diesen Tisch gehört, kann sich bei uns bewerben.
               </p>
@@ -388,7 +388,7 @@ export default function Home() {
         <div className="mx-auto max-w-[860px] px-4 sm:px-6">
           <SectionTitle id="kontakt-h" title="Empfehlen, bewerben, fragen" ghost="Kontakt" />
           <p className="mx-auto mt-8 max-w-2xl text-center leading-relaxed text-muted">
-            Einen Platz kann man nicht buchen. Aber Sie können uns jemanden empfehlen, sich als Gründer eines jungen Unternehmens um eine Wild Card
+            Einen Platz kann man nicht buchen. Aber Sie können uns jemanden empfehlen, sich als Gründer eines jungen Unternehmens um einen Gründerplatz
             bewerben oder uns einfach schreiben – gern auch direkt an <a href={`mailto:${CONTACT_MAIL}`}>{CONTACT_MAIL}</a>.
           </p>
           <div className="mt-12">

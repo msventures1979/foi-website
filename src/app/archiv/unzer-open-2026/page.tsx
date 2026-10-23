@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const schedule = [
-  { time: "10:00", text: "Check-in und Frühstück im Restaurant ACE" },
+  { time: "10:00", text: "Ankunft und Frühstück im Restaurant ACE" },
   { time: "12:00", text: "Kanonenstart auf dem Platz St. Leon" },
   { time: "14:00", text: "Schnupperkurs für Einsteiger" },
-  { time: "16:30", text: "Get-together im Halfway House" },
+  { time: "16:30", text: "Zusammenkommen am Halfway House" },
   { time: "18:00", text: "Empfang im Restaurant ACE" },
   { time: "18:30", text: "Abendveranstaltung und Siegerehrung" },
 ];
@@ -43,7 +43,7 @@ export default function UnzerOpenPage() {
             Sportbranche in den Golf Club St. Leon-Rot eingeladen, mit SAP als strategischem Partner.
           </p>
           <p>
-            Gespielt wurde ein Scramble, bei dem das Team zählt. Wer noch nicht spielt, konnte einen Schnupperkurs besuchen. Den Abschluss bildeten
+            Gespielt wurde im Team: Gewertet wurde der beste Schlag der Gruppe. Wer noch nicht spielt, konnte einen Schnupperkurs besuchen. Den Abschluss bildeten
             Empfang, Abendveranstaltung und Siegerehrung.
           </p>
         </div>
