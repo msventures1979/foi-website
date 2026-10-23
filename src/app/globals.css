@@ -192,6 +192,31 @@ body {
     height: 1px;
     overflow: hidden;
   }
+  .ghost {
+    font-family: var(--font-oswald), sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: clamp(48px, 9.5vw, 132px);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: #262626;
+  }
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px #fff;
+  }
+  .marquee {
+    animation: marquee 60s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      animation: none;
+    }
+  }
+  .card-dark {
+    background: #111;
+    border: 1px solid #262626;
+  }
   details summary {
     cursor: pointer;
     list-style: none;
@@ -201,5 +226,14 @@ body {
   }
   details[open] .plus {
     transform: rotate(45deg);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }

@@ -1,12 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SponsorStrip } from "@/components/ui";
 import { CONTACT_MAIL } from "@/lib/site";
 
 const nav = [
+  { href: "/#haltung", label: "Haltung" },
   { href: "/#format", label: "Der Abend" },
+  { href: "/#gaeste", label: "Gäste" },
+  { href: "/#gastgeber", label: "Über uns" },
   { href: "/archiv", label: "Archiv" },
-  { href: "/#gastgeber", label: "Gastgeber" },
-  { href: "/sponsoring", label: "Partner werden" },
+  { href: "/sponsoring", label: "Partner" },
 ];
 
 export function Header() {
@@ -14,19 +17,23 @@ export function Header() {
     <header className="sticky top-0 z-30 border-b border-line bg-black/90 backdrop-blur">
       <nav aria-label="Hauptnavigation" className="mx-auto flex max-w-[1240px] items-center justify-between gap-x-6 px-4 py-2.5 sm:px-6 md:py-3.5">
         <Link href="/" className="shrink-0 no-underline" aria-label="Frontline of Innovation – Startseite">
-          <Image src="/images/foi-logo.png" alt="Frontline of Innovation" width={97} height={40} className="h-8 w-auto sm:h-10" priority />
+          <Image src="/images/foi-logo.png" alt="Frontline of Innovation" width={160} height={66} className="h-9 w-auto md:h-14" priority />
         </Link>
-        <div className="flex items-center gap-x-5 text-sm sm:gap-x-7">
+        <div className="hidden items-center gap-x-7 lg:flex">
           {nav.map((n) => (
-            <Link
-              key={n.href}
-              href={n.href}
-              className={`py-3 text-[#ccc] no-underline hover:text-white ${n.href === "/archiv" ? "" : "hidden md:inline"}`}
-            >
+            <Link key={n.href} href={n.href} className="py-3 text-[12px] font-medium uppercase tracking-[0.16em] text-white no-underline hover:text-gold">
               {n.label}
             </Link>
           ))}
-          <Link href="/#kontakt" className="btn-ghost !min-h-10 !px-4 text-sm">
+        </div>
+        <div className="flex items-center gap-x-4">
+          <Link href="/archiv" className="py-3 text-[12px] font-medium uppercase tracking-[0.16em] text-white no-underline lg:hidden">
+            Archiv
+          </Link>
+          <Link
+            href="/#kontakt"
+            className="inline-flex min-h-10 items-center bg-white px-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-black no-underline hover:bg-gold hover:text-black md:px-6"
+          >
             Kontakt
           </Link>
         </div>
@@ -72,12 +79,13 @@ export function Footer() {
   );
 }
 
-export function PageShell({ children }: { children: React.ReactNode }) {
+export function PageShell({ children, sponsorStrip = false }: { children: React.ReactNode; sponsorStrip?: boolean }) {
   return (
     <div className="min-h-screen overflow-x-hidden bg-black text-white">
       <a href="#inhalt" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-black focus:p-3">
         Zum Inhalt springen
       </a>
+      {sponsorStrip ? <SponsorStrip /> : null}
       <Header />
       <main id="inhalt">{children}</main>
       <Footer />
