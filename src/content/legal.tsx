@@ -109,7 +109,7 @@ export function Datenschutz() {
           <b className="text-white">Vercel Inc.</b> (USA) – Hosting der Website, Rechenzentrum in Frankfurt am Main
         </li>
         <li>
-          <b className="text-white">Supabase Inc.</b> (USA) – Speicherung der Anfragen, Speicherort Frankfurt am Main
+          <b className="text-white">Supabase Inc.</b> (USA) – Speicherung der Anfragen, Speicherort Irland (EU)
         </li>
         <li>
           <b className="text-white">Resend</b> (USA) – Zustellung der Benachrichtigung über eine neue Anfrage an unser Postfach

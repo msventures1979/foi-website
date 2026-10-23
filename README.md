@@ -17,6 +17,6 @@ Neubau der bisherigen Lovable-Seite, gleicher Stack wie `racing.frontlineofinnov
 - Inhalte der Editionen: `src/content/editions.ts`, Partner: `src/content/partners.ts`, Rechtstexte: `src/content/legal.tsx`.
 
 ## Einrichtung
-1. Supabase: zweites Projekt in der Organisation „FOI“ (Region Frankfurt), Migrationen aus `supabase/migrations/` im SQL-Editor ausführen.
+1. Supabase: Projekt „foi-website“ in der Organisation „msventures1979“ (Ref `vipuxnjvgbyegrmqhvyw`, Region Irland), Migrationen aus `supabase/migrations/` im SQL-Editor ausführen.
 2. Vercel: Projekt aus diesem Repo, Region `fra1`, Variablen wie in `.env.example` (Schlüssel als „Secret“).
 3. Lokal: `.env.local` nach `.env.example`, dann `npm install` und `npm run dev`.
