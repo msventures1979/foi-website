@@ -35,18 +35,31 @@ export function SectionTitle({
 /** Weiße Logoleiste ganz oben – Partner der letzten Edition. */
 export function SponsorStrip() {
   const all = partnerTiers.flatMap((t) => t.partners.map((p) => ({ ...p, main: t.tier === "Hauptpartner" })));
+  const logos = (hidden: boolean) =>
+    all.map((p) => {
+      const ratio = p.w / p.h;
+      const h = Math.round(Math.min(p.main ? 34 : 22, Math.max(11, Math.sqrt((p.main ? 2200 : 1000) / ratio))));
+      return (
+        <a
+          key={p.name}
+          href={p.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={p.name}
+          tabIndex={hidden ? -1 : undefined}
+          aria-hidden={hidden || undefined}
+          className={`shrink-0 opacity-80 hover:opacity-100 ${hidden ? "lg:hidden" : ""}`}
+        >
+          <Image src={p.logo} alt={hidden ? "" : p.name} width={Math.round(h * ratio)} height={h} style={{ height: h, width: "auto" }} className="invert" />
+        </a>
+      );
+    });
+  // Auf kleinen Bildschirmen läuft die Leiste durch (Logos doppelt), ab Desktop steht sie zentriert.
   return (
-    <div className="bg-white">
-      <div className="mx-auto flex max-w-[1240px] items-center gap-x-6 overflow-x-auto px-4 py-2.5 sm:px-6 lg:justify-center lg:gap-x-8">
-        {all.map((p) => {
-          const ratio = p.w / p.h;
-          const h = Math.round(Math.min(p.main ? 34 : 22, Math.max(11, Math.sqrt((p.main ? 2200 : 1000) / ratio))));
-          return (
-            <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" title={p.name} className="shrink-0 opacity-80 hover:opacity-100">
-              <Image src={p.logo} alt={p.name} width={Math.round(h * ratio)} height={h} style={{ height: h, width: "auto" }} className="invert" />
-            </a>
-          );
-        })}
+    <div className="overflow-hidden bg-white">
+      <div className="marquee-logos flex w-max items-center gap-x-8 px-4 py-2.5 lg:mx-auto lg:w-auto lg:max-w-[1240px] lg:justify-center lg:px-6">
+        {logos(false)}
+        {logos(true)}
       </div>
     </div>
   );

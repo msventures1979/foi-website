@@ -42,9 +42,10 @@ export function Gallery({ photos, credit, color = false }: { photos: Photo[]; cr
 
   return (
     <>
-      <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
+      <ul className="grid grid-cols-3 gap-1 sm:gap-2 lg:grid-cols-4">
         {photos.map((p, i) => (
-          <li key={p.src}>
+          // unvollständige letzte Reihe im 3er-Raster ausblenden (Vollbildansicht zeigt trotzdem alle)
+          <li key={p.src} className={i >= Math.floor(photos.length / 3) * 3 ? "hidden lg:block" : undefined}>
             <button
               type="button"
               onClick={() => show(i)}
@@ -56,7 +57,7 @@ export function Gallery({ photos, credit, color = false }: { photos: Photo[]; cr
                 alt={p.alt}
                 width={640}
                 height={427}
-                sizes="(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw"
+                sizes="(min-width: 1024px) 300px, 33vw"
                 className={`${color ? "" : "photo group-hover:[filter:none]"} aspect-[3/2] w-full object-cover transition duration-500 group-hover:scale-[1.03]`}
               />
             </button>

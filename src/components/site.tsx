@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MobileMenu } from "@/components/mobile-menu";
 import { SponsorStrip } from "@/components/ui";
 import { CONTACT_MAIL } from "@/lib/site";
 
@@ -14,7 +15,7 @@ const nav = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-line bg-black/90 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-line bg-black">
       <nav aria-label="Hauptnavigation" className="mx-auto flex max-w-[1240px] items-center justify-between gap-x-6 px-4 py-2.5 sm:px-6 md:py-3.5">
         <Link href="/" className="shrink-0 no-underline" aria-label="Frontline of Innovation – Startseite">
           <Image src="/images/foi-logo.png" alt="Frontline of Innovation" width={160} height={66} className="h-9 w-auto md:h-14" priority />
@@ -26,16 +27,14 @@ export function Header() {
             </Link>
           ))}
         </div>
-        <div className="flex items-center gap-x-4">
-          <Link href="/archiv" className="py-3 text-[12px] font-medium uppercase tracking-[0.16em] text-white no-underline lg:hidden">
-            Archiv
-          </Link>
+        <div className="flex items-center gap-x-3">
           <Link
             href="/#kontakt"
-            className="inline-flex min-h-10 items-center bg-white px-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-black no-underline hover:bg-gold hover:text-black md:px-6"
+            className="hidden min-h-10 items-center bg-white px-4 text-[11px] sm:inline-flex font-semibold uppercase tracking-[0.16em] text-black no-underline hover:bg-gold hover:text-black md:px-6"
           >
             Kontakt
           </Link>
+          <MobileMenu items={nav} />
         </div>
       </nav>
     </header>

@@ -106,11 +106,12 @@ export default function Home() {
       </section>
 
       {/* Editionen 1–6 */}
-      <section aria-labelledby="editionen-h" className="mx-auto max-w-[1100px] px-4 pb-10 pt-24 sm:px-6 md:pt-28">
+      <section aria-labelledby="editionen-h" className="mx-auto max-w-[1100px] px-4 pb-6 pt-16 sm:px-6 md:pb-10 md:pt-28">
         <h2 id="editionen-h" className="sr-only">
           Die bisherigen Editionen
         </h2>
-        <ol className="grid grid-cols-2 gap-x-6 gap-y-14 md:grid-cols-3">
+        <p className="mb-5 text-center text-xs uppercase tracking-[0.24em] text-dim md:hidden">Editionen 1–6 · zum Blättern wischen</p>
+        <ol className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-x-6 md:gap-y-14 md:overflow-visible md:px-0 md:pb-0">
           {earlier.map((e) => {
             const inner = (
               <>
@@ -125,7 +126,7 @@ export default function Home() {
               </>
             );
             return (
-              <li key={e.slug} className="text-center">
+              <li key={e.slug} className="w-[64%] shrink-0 snap-start text-center sm:w-[42%] md:w-auto">
                 {e.photos ? (
                   <Link href={`/archiv/${e.slug}`} className="group block no-underline">
                     {inner}
@@ -140,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* Siebte Edition */}
-      <section aria-labelledby="zuletzt-h" className="mx-auto max-w-[1100px] px-4 py-20 sm:px-6">
+      <section aria-labelledby="zuletzt-h" className="mx-auto max-w-[1100px] px-4 py-14 sm:px-6 md:py-20">
         <div className="text-center">
           <p className="text-xs uppercase tracking-[0.28em] text-dim">{latestEdition.number}. Edition · zuletzt</p>
           <h2 id="zuletzt-h" className="mt-3 font-display text-[clamp(44px,7vw,92px)] font-bold uppercase leading-none">
@@ -199,19 +200,21 @@ export default function Home() {
       </section>
 
       {/* Haltung */}
-      <section id="haltung" aria-labelledby="haltung-h" className="py-24 md:py-32">
+      <section id="haltung" aria-labelledby="haltung-h" className="py-16 md:py-32">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
           <SectionTitle id="haltung-h" eyebrow="Wofür wir stehen" title="Kein Geschäftsmodell" ghost="Haltung" />
           <ul className="mt-14 grid gap-4 md:grid-cols-3">
             {principles.map((p) => (
-              <li key={p.title} className="card-dark p-8 text-center">
-                <Icon name={p.icon} className="mx-auto h-9 w-9 text-dim" />
-                <h3 className="mt-5 font-display text-2xl font-semibold uppercase">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{p.text}</p>
+              <li key={p.title} className="card-dark flex gap-5 p-6 text-left md:block md:p-8 md:text-center">
+                <Icon name={p.icon} className="h-8 w-8 shrink-0 text-dim md:mx-auto md:h-9 md:w-9" />
+                <div>
+                <h3 className="font-display text-xl font-semibold uppercase md:mt-5 md:text-2xl">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted md:mt-3">{p.text}</p>
+                </div>
               </li>
             ))}
           </ul>
-          <blockquote className="mx-auto mt-20 max-w-4xl text-center">
+          <blockquote className="mx-auto mt-14 max-w-4xl text-center md:mt-20">
             <p className="font-display text-[clamp(26px,3.4vw,44px)] font-semibold uppercase leading-[1.15]">
               „Am Ende zählt nicht die Zahl der Gäste, sondern die Zahl der Gespräche, die es ohne diesen Abend nie gegeben hätte.“
             </p>
@@ -221,16 +224,16 @@ export default function Home() {
       </section>
 
       {/* Der Abend */}
-      <section id="format" aria-labelledby="format-h" className="border-t border-line py-24 md:py-32">
+      <section id="format" aria-labelledby="format-h" className="border-t border-line py-16 md:py-32">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
           <SectionTitle id="format-h" eyebrow="Das Format" title="Was Sie an diesem Abend erwartet" ghost="Der Abend" />
-          <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid grid-cols-2 gap-2 sm:gap-4 md:mt-14 lg:grid-cols-3">
             {highlights.map((h) => (
-              <li key={h.value} className="card-dark group p-8 text-center transition-colors hover:border-[#444]">
-                <Icon name={h.icon} className="mx-auto h-9 w-9 text-dim transition-colors group-hover:text-gold" />
-                <p className="mt-5 text-[11px] uppercase tracking-[0.26em] text-dim">{h.label}</p>
-                <h3 className="mt-1 font-display text-3xl font-semibold uppercase">{h.value}</h3>
-                <p className="mx-auto mt-3 max-w-[280px] text-sm leading-relaxed text-muted">{h.text}</p>
+              <li key={h.value} className="card-dark group p-4 text-center transition-colors hover:border-[#444] sm:p-8">
+                <Icon name={h.icon} className="mx-auto h-7 w-7 text-dim transition-colors group-hover:text-gold sm:h-9 sm:w-9" />
+                <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-dim sm:mt-5 sm:text-[11px] sm:tracking-[0.26em]">{h.label}</p>
+                <h3 className="mt-1 font-display text-2xl font-semibold uppercase sm:text-3xl">{h.value}</h3>
+                <p className="mx-auto mt-2 max-w-[280px] text-xs leading-relaxed text-muted sm:mt-3 sm:text-sm">{h.text}</p>
               </li>
             ))}
           </ul>
@@ -240,7 +243,7 @@ export default function Home() {
       <Marquee text="Auf persönliche Einladung · Mannheim" />
 
       {/* Gäste */}
-      <section id="gaeste" aria-labelledby="gaeste-h" className="py-24 md:py-28">
+      <section id="gaeste" aria-labelledby="gaeste-h" className="py-16 md:py-28">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
           <h2 id="gaeste-h" className="sr-only">
             Gäste
@@ -257,18 +260,18 @@ export default function Home() {
             ))}
           </ul>
 
-          <div className="mt-24 text-right">
+          <div className="mt-16 md:mt-24 md:text-right">
             <p aria-hidden className="ghost text-left md:text-center">
               Einladung
             </p>
-            <p className="-mt-2 font-display text-[clamp(22px,3vw,36px)] font-semibold uppercase md:-mt-6">Einladungen &amp; Empfehlungen</p>
+            <p className="mt-1 font-display text-[clamp(22px,3vw,36px)] font-semibold uppercase md:-mt-6">Einladungen &amp; Empfehlungen</p>
           </div>
           <div className="mt-10 grid items-start gap-8 md:grid-cols-[1fr_auto]">
             <p className="max-w-2xl leading-relaxed text-muted">
               Wir laden eine sorgfältig ausgewählte Runde von Persönlichkeiten ein. Unsere Gäste können weitere Personen empfehlen – so wächst der Kreis
               mit jedem Abend, ohne beliebig zu werden.
             </p>
-            <Link href="#kontakt" className="flex h-20 w-20 items-center justify-center border border-line-strong text-white no-underline hover:border-white" aria-label="Zum Kontaktformular">
+            <Link href="#kontakt" className="hidden h-20 w-20 items-center justify-center border border-line-strong text-white no-underline hover:border-white md:flex" aria-label="Zum Kontaktformular">
               <Icon name="pfeil" className="h-7 w-7" />
             </Link>
           </div>
@@ -296,10 +299,10 @@ export default function Home() {
       </section>
 
       {/* Gastgeber */}
-      <section id="gastgeber" aria-labelledby="gastgeber-h" className="border-t border-line py-24 md:py-32">
+      <section id="gastgeber" aria-labelledby="gastgeber-h" className="border-t border-line py-16 md:py-32">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
           <SectionTitle id="gastgeber-h" eyebrow="Gastgeber" title="Wer einlädt" ghost="Über uns" />
-          <ul className="mt-14 grid gap-6 md:grid-cols-2">
+          <ul className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2">
             {hosts.map((h) => (
               <li key={h.name} className="group">
                 <div className="relative aspect-[4/5] overflow-hidden bg-card">
@@ -339,7 +342,7 @@ export default function Home() {
       </section>
 
       {/* Partner */}
-      <section aria-labelledby="partner-h" className="border-t border-line py-24 md:py-28">
+      <section aria-labelledby="partner-h" className="border-t border-line py-16 md:py-28">
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
           <SectionTitle id="partner-h" eyebrow={`Partner der Edition ${latestEdition.period}`} title="Wer den Abend möglich macht" />
           <div className="mt-14 space-y-14">
@@ -360,7 +363,7 @@ export default function Home() {
                             target="_blank"
                             rel="noopener noreferrer"
                             title={p.name}
-                            className={main ? "card-dark logo-partner flex h-48 items-center justify-center px-8 md:h-56" : "logo-partner block"}
+                            className={main ? "card-dark logo-partner flex h-36 items-center justify-center px-8 sm:h-48 md:h-56" : "logo-partner block"}
                           >
                             {img}
                           </a>
@@ -381,7 +384,7 @@ export default function Home() {
       </section>
 
       {/* Impressionen */}
-      <section aria-labelledby="impressionen-h" className="border-t border-line py-24 md:py-28">
+      <section aria-labelledby="impressionen-h" className="border-t border-line py-16 md:py-28">
         <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
           <SectionTitle id="impressionen-h" title="Impressionen" eyebrow={`${latestEdition.period} · ${latestEdition.venue}`} />
           <div className="mt-12">
@@ -396,7 +399,7 @@ export default function Home() {
       </section>
 
       {/* Kontakt */}
-      <section id="kontakt" aria-labelledby="kontakt-h" className="border-t border-line py-24 md:py-28">
+      <section id="kontakt" aria-labelledby="kontakt-h" className="border-t border-line py-16 md:py-28">
         <div className="mx-auto max-w-[860px] px-4 sm:px-6">
           <SectionTitle id="kontakt-h" title="Empfehlen, bewerben, fragen" ghost="Kontakt" />
           <p className="mx-auto mt-8 max-w-2xl text-center leading-relaxed text-muted">

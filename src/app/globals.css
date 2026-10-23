@@ -208,8 +208,17 @@ body {
   .marquee {
     animation: marquee 60s linear infinite;
   }
+  .marquee-logos {
+    animation: marquee 40s linear infinite;
+  }
+  @media (min-width: 1024px) {
+    .marquee-logos {
+      animation: none;
+    }
+  }
   @media (prefers-reduced-motion: reduce) {
-    .marquee {
+    .marquee,
+    .marquee-logos {
       animation: none;
     }
   }
