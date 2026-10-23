@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { Photo } from "@/content/editions";
 
 /** Bildraster mit Vollbildansicht (Pfeiltasten, Esc, Wischen auf dem Handy). */
-export function Gallery({ photos, credit }: { photos: Photo[]; credit?: string }) {
+export function Gallery({ photos, credit, color = false }: { photos: Photo[]; credit?: string; color?: boolean }) {
   const [open, setOpen] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const touchX = useRef<number | null>(null);
@@ -57,7 +57,7 @@ export function Gallery({ photos, credit }: { photos: Photo[]; credit?: string }
                 width={640}
                 height={427}
                 sizes="(min-width: 1024px) 300px, (min-width: 640px) 33vw, 50vw"
-                className="photo aspect-[3/2] w-full object-cover transition duration-500 group-hover:scale-[1.03] group-hover:[filter:none]"
+                className={`${color ? "" : "photo group-hover:[filter:none]"} aspect-[3/2] w-full object-cover transition duration-500 group-hover:scale-[1.03]`}
               />
             </button>
           </li>
@@ -81,26 +81,49 @@ export function Gallery({ photos, credit }: { photos: Photo[]; credit?: string }
         }}
       >
         {current ? (
-          <div className="flex h-full flex-col">
-            <div className="flex items-center justify-between px-4 py-3 text-sm text-dim">
-              <span>
+          <div className="relative flex h-full flex-col">
+            <div className="flex items-center justify-between px-4 py-3 text-sm text-muted sm:px-6">
+              <span className="tabular-nums">
                 {open! + 1} / {photos.length}
               </span>
-              <button type="button" onClick={close} className="btn-ghost !min-h-10 !px-4" autoFocus>
-                Schließen
+              <button type="button" onClick={close} className="inline-flex h-11 items-center gap-2 px-2 text-sm uppercase tracking-[0.16em] text-white hover:text-gold" autoFocus>
+                Schließen <span aria-hidden className="text-2xl leading-none">×</span>
               </button>
             </div>
             <div className="relative min-h-0 flex-1" onClick={(e) => e.target === e.currentTarget && close()}>
-              <Image src={current.src} alt={current.alt} fill sizes="100vw" className="object-contain" />
-            </div>
-            <div className="flex justify-center gap-3 px-4 py-4">
-              <button type="button" onClick={() => step(-1)} className="btn-ghost" aria-label="Vorheriges Bild">
-                ←
+              <Image key={current.src} src={current.src} alt={current.alt} fill sizes="100vw" className="object-contain" />
+              <button
+                type="button"
+                onClick={() => step(-1)}
+                aria-label="Vorheriges Bild"
+                className="absolute left-2 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center border border-white/40 bg-black/70 text-4xl leading-none text-white hover:bg-white hover:text-black sm:left-6"
+              >
+                ‹
               </button>
-              <button type="button" onClick={() => step(1)} className="btn-ghost" aria-label="Nächstes Bild">
-                →
+              <button
+                type="button"
+                onClick={() => step(1)}
+                aria-label="Nächstes Bild"
+                className="absolute right-2 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center border border-white/40 bg-black/70 text-4xl leading-none text-white hover:bg-white hover:text-black sm:right-6"
+              >
+                ›
               </button>
             </div>
+            <ul className="hidden gap-1.5 overflow-x-auto px-4 py-4 sm:flex lg:justify-center">
+              {photos.map((p, i) => (
+                <li key={p.src} className="shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(i)}
+                    aria-label={`Bild ${i + 1}`}
+                    aria-current={i === open}
+                    className={`block h-12 w-[72px] overflow-hidden ${i === open ? "outline outline-2 outline-white" : "opacity-50 hover:opacity-100"}`}
+                  >
+                    <Image src={p.thumb} alt="" width={144} height={96} className="h-full w-full object-cover" />
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
         ) : null}
       </dialog>

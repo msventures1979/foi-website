@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Gallery } from "@/components/gallery";
 import { InquiryForm } from "@/components/inquiry-form";
 import { PageShell } from "@/components/site";
 import { Slider } from "@/components/slider";
@@ -33,13 +34,15 @@ const guests = [
 const hosts = [
   {
     name: "Matthias Storch",
-    img: "/images/menschen/matthias-storch.jpg",
+    img: "/images/menschen/gastgeber-matthias-storch.webp",
+    role: "Gastgeber · Gründer",
     text: "Gründer von claida und der Good Brands AG. Baut seit vielen Jahren Unternehmen auf, mit Erfahrung in Marketing und Vertrieb bis zum Exit.",
     linkedin: "https://www.linkedin.com/in/matthiasstorch/",
   },
   {
     name: "Süleyman Acar",
-    img: "/images/menschen/sueleyman-acar.jpg",
+    img: "/images/menschen/gastgeber-sueleyman-acar.webp",
+    role: "Gastgeber · Gründer",
     text: "Geschäftsführer der eCademy GmbH. Gründer mit Exit an Ströer, Investor und Business Angel mit Erfahrung in Vertrieb und Restrukturierung.",
     linkedin: "https://www.linkedin.com/in/sueleyman-acar/",
   },
@@ -52,8 +55,6 @@ const ortBilder = [
   { src: "/images/start/ort-3.webp", alt: "Lange Halle der Alten Schildkrötfabrik" },
   { src: "/images/start/ort-4.webp", alt: "Backsteinfassade der Alten Schildkrötfabrik" },
 ];
-
-const impressions = ["05", "02", "04", "17", "18", "09", "08", "13", "15", "12", "20", "21"];
 
 export default function Home() {
   const jsonLd = {
@@ -295,21 +296,42 @@ export default function Home() {
       </section>
 
       {/* Gastgeber */}
-      <section id="gastgeber" aria-labelledby="gastgeber-h" className="border-t border-line py-24 md:py-28">
-        <div className="mx-auto max-w-[1000px] px-4 sm:px-6">
-          <SectionTitle id="gastgeber-h" eyebrow="Gastgeber" title="Wer einlädt" />
-          <ul className="mt-14 grid gap-14 sm:grid-cols-2">
+      <section id="gastgeber" aria-labelledby="gastgeber-h" className="border-t border-line py-24 md:py-32">
+        <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
+          <SectionTitle id="gastgeber-h" eyebrow="Gastgeber" title="Wer einlädt" ghost="Über uns" />
+          <ul className="mt-14 grid gap-6 md:grid-cols-2">
             {hosts.map((h) => (
-              <li key={h.name} className="text-center">
-                {/* Quelle nur 320 px – höchstens 160 px anzeigen, sonst unscharf auf Retina-Bildschirmen */}
-                <div className="mx-auto h-40 w-40 overflow-hidden">
-                  <Image src={h.img} alt={h.name} width={320} height={320} sizes="160px" quality={90} className="photo h-40 w-40 object-cover transition duration-500 hover:[filter:none]" />
+              <li key={h.name} className="group">
+                <div className="relative aspect-[4/5] overflow-hidden bg-card">
+                  <Image
+                    src={h.img}
+                    alt={`${h.name} auf der Bühne, Mai 2026`}
+                    fill
+                    sizes="(min-width: 768px) 530px, 100vw"
+                    className="photo object-cover transition duration-700 group-hover:scale-[1.03] group-hover:[filter:none]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 sm:p-9">
+                    <p className="text-xs uppercase tracking-[0.26em] text-gold">{h.role}</p>
+                    <h3 className="mt-2 font-display text-[clamp(34px,4.6vw,58px)] font-bold uppercase leading-[0.95]">
+                      {h.name.split(" ")[0]}
+                      <br />
+                      {h.name.split(" ").slice(1).join(" ")}
+                    </h3>
+                  </div>
                 </div>
-                <h3 className="mt-6 font-display text-2xl font-semibold uppercase">{h.name}</h3>
-                <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted">{h.text}</p>
-                <a href={h.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-xs font-bold text-black no-underline hover:bg-gold" aria-label={`${h.name} auf LinkedIn`}>
-                  in
-                </a>
+                <div className="flex items-start justify-between gap-6 border-x border-b border-line px-6 py-6 sm:px-9">
+                  <p className="leading-relaxed text-muted">{h.text}</p>
+                  <a
+                    href={h.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold text-black no-underline hover:bg-gold"
+                    aria-label={`${h.name} auf LinkedIn`}
+                  >
+                    in
+                  </a>
+                </div>
               </li>
             ))}
           </ul>
@@ -362,20 +384,9 @@ export default function Home() {
       <section aria-labelledby="impressionen-h" className="border-t border-line py-24 md:py-28">
         <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
           <SectionTitle id="impressionen-h" title="Impressionen" eyebrow={`${latestEdition.period} · ${latestEdition.venue}`} />
-          <ul className="mt-12 grid grid-cols-2 gap-2 md:grid-cols-4">
-            {impressions.map((n) => (
-              <li key={n} className="overflow-hidden">
-                <Image
-                  src={`/images/archiv/2026-05/${n}-klein.webp`}
-                  alt={`Frontline of Innovation, ${latestEdition.period}`}
-                  width={640}
-                  height={427}
-                  sizes="(min-width: 768px) 300px, 50vw"
-                  className="aspect-[3/2] w-full object-cover transition duration-500 hover:scale-105"
-                />
-              </li>
-            ))}
-          </ul>
+          <div className="mt-12">
+            <Gallery color photos={latestEdition.photos ?? []} />
+          </div>
           <p className="mt-10 text-center">
             <Link href="/archiv" className="border-b border-dim pb-1 text-xs uppercase tracking-[0.24em] text-muted no-underline hover:text-white">
               Frühere Editionen im Archiv →
