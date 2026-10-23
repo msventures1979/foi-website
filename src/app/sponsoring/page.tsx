@@ -174,8 +174,7 @@ export default function SponsoringPage() {
                   ))}
                 </ul>
                 <Link
-                  href={`?paket=${encodeURIComponent(p.name)}#anfrage`}
-                  scroll={false}
+                  href={`/sponsoring?paket=${encodeURIComponent(p.name)}#anfrage`}
                   className={`mt-9 inline-flex min-h-12 items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] no-underline ${p.featured ? "bg-gold text-black hover:bg-gold-light hover:text-black" : "border border-white text-white hover:bg-white hover:text-black"}`}
                 >
                   <Icon name="rechts" className="h-4 w-4" />

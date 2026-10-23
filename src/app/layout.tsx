@@ -31,7 +31,6 @@ export const metadata: Metadata = {
   title: { default: `${SITE_NAME} – Dinner in Mannheim`, template: `%s – ${SITE_NAME}` },
   description,
   applicationName: SITE_NAME,
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,

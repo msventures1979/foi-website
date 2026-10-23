@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/site";
 import { Impressum } from "@/content/legal";
 
-export const metadata: Metadata = { title: "Impressum", alternates: { canonical: "/impressum" } };
+export const metadata: Metadata = { title: "Impressum", description: "Impressum von Frontline of Innovation – Anbieterkennzeichnung und Kontakt.", alternates: { canonical: "/impressum" } };
 
 export default function ImpressumPage() {
   return (

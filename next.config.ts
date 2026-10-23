@@ -44,6 +44,14 @@ const nextConfig: NextConfig = {
       // Einladungslinks der alten Seite
       { source: "/inviteonly", destination: "/einladung", permanent: true },
       { source: "/rsvp", destination: "/einladung", permanent: true },
+      // Verwaltungsbereiche der alten Seite
+      { source: "/signin", destination: "/admin/login", permanent: true },
+      { source: "/dashboard", destination: "/admin", permanent: true },
+      { source: "/rsvp/dashboard", destination: "/admin", permanent: true },
+      { source: "/sponsoren/dashboard/:path*", destination: "/admin", permanent: true },
+      // Vertrags- und Tour-Links der alten Seite: bis Etappe 3 auf die Partnerseite
+      { source: "/sponsor/vertrag", destination: "/sponsoring#anfrage", permanent: false },
+      { source: "/tour/:slug", destination: "/", permanent: false },
     ];
   },
 };

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Gallery } from "@/components/gallery";
@@ -8,6 +9,9 @@ import { Icon, Marquee, SectionTitle } from "@/components/ui";
 import { editions, latestEdition } from "@/content/editions";
 import { partnerTiers } from "@/content/partners";
 import { CONTACT_MAIL, SITE_NAME, SITE_URL } from "@/lib/site";
+
+/** Kanonische Adresse nur für die Startseite – andere Seiten setzen ihre eigene */
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const principles = [
   { icon: "einladung", title: "Gäste zahlen nichts", text: "Kein Ticket, kein Beitrag, keine Gegenleistung. Den Abend tragen die Gastgeber und eine kleine Zahl von Partnern." },

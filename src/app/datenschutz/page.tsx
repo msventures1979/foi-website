@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/site";
 import { Datenschutz } from "@/content/legal";
 
-export const metadata: Metadata = { title: "Datenschutz", alternates: { canonical: "/datenschutz" } };
+export const metadata: Metadata = { title: "Datenschutz", description: "Datenschutzerklärung von Frontline of Innovation – welche Daten wir bei Formularen, Einladungen und Anmeldungen verarbeiten.", alternates: { canonical: "/datenschutz" } };
 
 export default function DatenschutzPage() {
   return (
