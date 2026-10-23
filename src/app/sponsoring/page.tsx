@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import { GuestMix } from "@/components/guest-mix";
 import { InquiryForm } from "@/components/inquiry-form";
 import { PageShell } from "@/components/site";
 import { Icon, PageHero, SectionTitle, Stats } from "@/components/ui";
@@ -121,6 +122,13 @@ export default function SponsoringPage() {
           ]}
         />
       </div>
+
+      {/* Publikum */}
+      <section aria-labelledby="mix-h" className="pt-16 md:pt-28">
+        <div className="mx-auto max-w-[1100px] px-4 sm:px-6">
+          <GuestMix headingId="mix-h" title="Ihr Publikum" />
+        </div>
+      </section>
 
       {/* Warum */}
       <section aria-labelledby="warum-h" className="py-16 md:py-28">

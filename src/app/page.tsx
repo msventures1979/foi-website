@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Gallery } from "@/components/gallery";
+import { GuestMix } from "@/components/guest-mix";
 import { InquiryForm } from "@/components/inquiry-form";
 import { PageShell } from "@/components/site";
 import { Slider } from "@/components/slider";
@@ -263,6 +264,10 @@ export default function Home() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-16 border-y border-line py-12 md:mt-24 md:py-16">
+            <GuestMix headingId="mix-h" />
+          </div>
 
           <div className="mt-16 md:mt-24 md:text-right">
             <p aria-hidden className="ghost text-left md:text-center">
