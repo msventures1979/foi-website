@@ -5,7 +5,7 @@ import { z } from "zod";
 export const INQUIRY_KINDS = ["kontakt", "sponsoring", "tickets"] as const;
 export type InquiryKind = (typeof INQUIRY_KINDS)[number];
 
-export const CONTACT_TOPICS = ["Empfehlung eines Gastes", "Bewerbung um einen Gründerplatz", "Presse", "Sonstiges"] as const;
+export const CONTACT_TOPICS = ["Empfehlung eines Gastes", "Bewerbung um eine Wild Card", "Presse", "Sonstiges"] as const;
 export const SPONSOR_PACKAGES = ["Hauptpartner", "Premiumpartner", "Förderpartner", "Noch offen"] as const;
 export const MAX_TICKETS = 2;
 

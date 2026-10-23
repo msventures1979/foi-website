@@ -76,7 +76,7 @@ export function Datenschutz() {
         Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren und stabilen Betrieb (Art. 6 Abs. 1 lit. f DSGVO).
       </p>
 
-      <H3>Kontakt, Empfehlungen und Bewerbungen um einen Gründerplatz</H3>
+      <H3>Kontakt, Empfehlungen und Wild-Card-Bewerbungen</H3>
       <p>
         Wenn Sie uns über das Kontaktformular schreiben, verarbeiten wir Ihr Anliegen, Vor- und Nachname, E-Mail-Adresse, Ihre Nachricht sowie freiwillig
         Unternehmen, Position und LinkedIn-Profil. Wir nutzen die Angaben, um Ihre Anfrage zu beantworten und – bei Empfehlungen und Bewerbungen – um über

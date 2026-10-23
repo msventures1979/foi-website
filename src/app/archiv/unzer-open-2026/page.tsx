@@ -5,7 +5,7 @@ import { PageShell } from "@/components/site";
 
 export const metadata: Metadata = {
   title: "Unzer Open 2026",
-  description: "Golfturnier, Schnupperkurs und Abendveranstaltung im Golf Club St. Leon-Rot am 10. Juni 2026 – gemeinsam mit Unzer.",
+  description: "Das Golfturnier von Unzer im Golf Club St. Leon-Rot am 10. Juni 2026 – mit Frontline of Innovation als Mitveranstalter.",
   alternates: { canonical: "/archiv/unzer-open-2026" },
 };
 
@@ -39,8 +39,8 @@ export default function UnzerOpenPage() {
       <section className="mx-auto grid max-w-[1240px] gap-12 px-4 py-16 sm:px-6 md:grid-cols-[1.3fr_1fr] md:py-20">
         <div className="space-y-4 text-[17px] leading-relaxed text-muted">
           <p>
-            Ein Tag für Sport und Austausch: Gemeinsam mit Unzer hat Frontline of Innovation am 10. Juni 2026 einen ausgewählten Kreis aus Digital- und
-            Sportbranche in den Golf Club St. Leon-Rot eingeladen, mit SAP als strategischem Partner.
+            Ein Tag für Sport und Austausch: Zum Unzer Open hat Unzer am 10. Juni 2026 einen ausgewählten Kreis aus Digital- und Sportbranche in den
+            Golf Club St. Leon-Rot eingeladen, mit SAP als strategischem Partner. Frontline of Innovation war als Mitveranstalter dabei.
           </p>
           <p>
             Gespielt wurde im Team: Gewertet wurde der beste Schlag der Gruppe. Wer noch nicht spielt, konnte einen Schnupperkurs besuchen. Den Abschluss bildeten
