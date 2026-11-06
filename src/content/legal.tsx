@@ -78,6 +78,16 @@ export function Datenschutz() {
         Rechtsgrundlage ist unser berechtigtes Interesse an einem sicheren und stabilen Betrieb (Art. 6 Abs. 1 lit. f DSGVO).
       </p>
 
+      <H3>Besucherstatistik mit Vercel Web Analytics</H3>
+      <p>
+        Um zu sehen, welche Seiten wie oft aufgerufen werden, nutzen wir Vercel Web Analytics unseres Hosting-Anbieters Vercel Inc. Dabei werden keine
+        Cookies gesetzt und keine Daten im Browser gespeichert. Erfasst werden die aufgerufene Seite, die verweisende Seite, Land, Gerätetyp, Browser und
+        Betriebssystem. Ihre IP-Adresse wird nicht gespeichert; zur Zählung einzelner Besuche bildet Vercel daraus einen anonymen Hashwert, der nach
+        24 Stunden verfällt. Ein Rückschluss auf Ihre Person ist uns nicht möglich. Persönliche Einladungsseiten und die Verwaltung messen wir nicht,
+        Einladungscodes werden nicht übertragen. Rechtsgrundlage ist unser berechtigtes Interesse an einer bedarfsgerechten Gestaltung der Website
+        (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+
       <H3>Reichweitenmessung mit Google Analytics</H3>
       <p>
         Wenn Sie im Hinweis beim ersten Besuch „Akzeptieren“ wählen, nutzen wir Google Analytics 4 der Google Ireland Limited, Gordon House, Barrow
@@ -125,7 +135,7 @@ export function Datenschutz() {
       <p>Ihre Anfragen lesen nur die Gastgeber Matthias Storch und Süleyman Acar. Wir setzen Dienstleister ein, die Daten in unserem Auftrag verarbeiten:</p>
       <ul className="mt-3 list-disc space-y-2 pl-6">
         <li>
-          <b className="text-white">Vercel Inc.</b> (USA) – Hosting der Website, Rechenzentrum in Frankfurt am Main
+          <b className="text-white">Vercel Inc.</b> (USA) – Hosting der Website, Rechenzentrum in Frankfurt am Main, sowie Besucherstatistik ohne Cookies
         </li>
         <li>
           <b className="text-white">Supabase Inc.</b> (USA) – Speicherung der Anfragen, Speicherort Irland (EU)

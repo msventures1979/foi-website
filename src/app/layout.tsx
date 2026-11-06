@@ -1,4 +1,5 @@
 import { Consent } from "@/components/consent";
+import { VercelAnalytics } from "@/components/vercel-analytics";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <Consent />
+        <VercelAnalytics />
       </body>
     </html>
   );
