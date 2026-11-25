@@ -26,7 +26,7 @@ const archivo = localFont({
 });
 
 const description =
-  "Frontline of Innovation bringt Entscheider aus Wirtschaft, Sport, Wissenschaft und Politik an einen Tisch – in Mannheim, an wechselnden Orten, auf persönliche Einladung.";
+  "Frontline of Innovation bringt Entscheider aus Wirtschaft, Sport, Wissenschaft und Politik in Mannheim an einen Tisch – auf persönliche Einladung.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
